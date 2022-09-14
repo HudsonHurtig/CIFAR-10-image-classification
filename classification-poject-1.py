@@ -36,6 +36,16 @@ X_test = X_test / 255.0
 y_train = np_utils.to_categorical(y_train)
 y_test = np_utils.to_categorical(y_test)
 
-
+#this line basically confirms that there is only one dimension to the numpy array at this point
 
 class_num = y_test.shape[1]
+
+
+# creating layers of a nueral net
+model = keras.Sequential()
+model.add(keras.layers.Conv2D(64, 3, activation='relu', padding='same'))
+model.add(keras.layers.MaxPooling2D(2))
+model.add(keras.layers.Dropout(0.2))
+model.add(keras.layers.BatchNormalization())
+
+
