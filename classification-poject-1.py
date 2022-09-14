@@ -17,15 +17,25 @@ from keras.datasets import cifar10
 
 (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 
-print(X_train[0])
+
+
+#changing the data type for the values in the numpy array
+
 
 X_train = X_train.astype('float32')
 X_test = X_test.astype('float32')
+
+#making the numbers on a scale of 0-1
+
 X_train = X_train / 255.0
 X_test = X_test / 255.0
 
-print(X_train[0])
+#this splits the data into categories for the nueral net to evaluate and process
+#this also allows us to know how many end point nuerons we need
+
+y_train = np_utils.to_categorical(y_train)
+y_test = np_utils.to_categorical(y_test)
 
 
 
-
+class_num = y_test.shape[1]
